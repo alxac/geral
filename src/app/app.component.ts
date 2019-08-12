@@ -27,7 +27,8 @@ export class AppComponent {
     this.pages = [
       { url: '/tasks', direction: 'back', icon: 'md-albums', text: 'Tasks' },
       { url: '/tasks/create', direction: 'forward', icon: 'md-add-circle', text: 'New Task' },
-      { url: '/venda', direction: 'back', icon: 'md-cart', text: 'Nova venda' }
+      { url: '/venda', direction: 'back', icon: 'md-cart', text: 'Vendas' },
+      { url: '/venda/create', direction: 'forward', icon: 'md-add-circle', text: 'Nova venda' },
     ];
 
     this.authService.authState$.subscribe(user => (this.user = user));

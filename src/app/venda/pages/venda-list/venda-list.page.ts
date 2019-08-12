@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+import { OverlayService } from 'src/app/core/services/overlay.service';
+import { Venda } from '../../models/venda.model';
+import { VendaService } from '../../services/venda.service';
 
 @Component({
   selector: 'app-venda-list',
@@ -6,10 +13,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./venda-list.page.scss'],
 })
 export class VendaListPage implements OnInit {
+  vendas$: Observable<Venda[]>;
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController,
+    private overLay: OverlayService,
+    private vendaService: VendaService
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit(): Promise<void> {
+    const loading = await this.overLay.loading();
+    this.vendas$ = this.vendaService.getAll();
+    this.vendas$.pipe(take(1)).subscribe( (v) => {loading.dismiss() });
   }
 
 }
