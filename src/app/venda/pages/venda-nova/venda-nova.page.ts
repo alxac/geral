@@ -35,7 +35,12 @@ export class VendaNovaPage implements OnInit {
 
   private createForm(): void {
     this.vendaForm = this.fb.group({
-      vendedor: ['', [Validators.required, Validators.minLength(3)]]
+      vendedor: ['', [Validators.required, Validators.minLength(3)]],
+      pagamento: [''],
+      valor: [''],
+      data: [''],
+      pago: ['false'],
+      ncontrole: ['']
     });
   }
 
@@ -53,7 +58,6 @@ export class VendaNovaPage implements OnInit {
           });
       this.navCtrl.navigateBack('/venda');
     } catch (error) {
-      console.log('Error saving Venda: ', error);
       await this.overlayService.toast({
         message: error.message
       });
