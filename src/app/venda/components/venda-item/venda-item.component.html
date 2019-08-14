@@ -1,3 +1,22 @@
-<p>
-  venda-item works!
-</p>
+<ion-item>
+    <ion-chip>
+        <ion-avatar>
+            <img src="../../../../assets/avatar.png">
+        </ion-avatar>
+        <ion-label>{{ venda.vendedor}}</ion-label>
+    </ion-chip>
+    <ion-label style="padding-left: 10px;">
+        <h1>
+            R$ {{ venda.valor | number:'.1-2':'pt' }}
+        </h1>
+        <h3>Pagamento: {{ venda.pagamento }}</h3>
+        <p style="color: #dfdfdf">
+            <small>
+                <i>{{ venda.id }}</i>
+            </small>
+        </p>
+    </ion-label>
+    <ion-badge color="{{ (venda.pago ? 'success' : 'danger') }}">
+        {{ (venda.pago ? 'pago' : 'pendente') }}
+    </ion-badge>
+</ion-item>

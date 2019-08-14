@@ -12,10 +12,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [SharedModule,     RouterModule.forChild(routes)
+  imports: [SharedModule, RouterModule.forChild(routes)
   ],
   declarations: [VendaNovaPage]
 })
-export class VendaNovaPageModule {}
-
-export class TaskSavePageModule {}
+export class VendaNovaPageModule { }

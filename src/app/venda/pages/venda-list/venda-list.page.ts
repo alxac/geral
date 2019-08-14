@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -16,7 +15,6 @@ export class VendaListPage implements OnInit {
   vendas$: Observable<Venda[]>;
 
   constructor(
-    private navCtrl: NavController,
     private overLay: OverlayService,
     private vendaService: VendaService
   ) { }

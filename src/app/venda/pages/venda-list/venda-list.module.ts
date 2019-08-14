@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ComponentsModule } from 'src/app/tasks/components/components.module';
+import { ComponentsModule } from 'src/app/venda/components/components.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { VendaListPage } from './venda-list.page';
 

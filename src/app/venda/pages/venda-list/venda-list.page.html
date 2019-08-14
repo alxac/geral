@@ -16,26 +16,7 @@
 
     <ion-list *ngIf="(vendas$ | async) as vendas">
         <ng-container *ngIf="vendas.length > 0; else semVendas">
-            <ion-item *ngFor="let venda of vendas">
-                <ion-chip>
-                    <ion-avatar>
-                        <img src="../../../../assets/avatar.png">
-                    </ion-avatar>
-                    <ion-label>{{ venda.vendedor}}</ion-label>
-                </ion-chip>
-                <!-- <ion-avatar slot="start">
-                    <img src="../../../../assets/avatar.png">
-                </ion-avatar> -->
-                <ion-label style="padding-left: 10px;">
-                    <h1>R$ {{ venda.valor | number:'.1-2':'pt' }}</h1>
-                    <h3>Pagamento: {{ venda.pagamento }}</h3>
-                    <p style="color: #dfdfdf"><small><i>{{ venda.id }}</i></small></p>
-                </ion-label>
-                <!-- <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime> -->
-                <ion-badge color="{{ (venda.pago ? 'success' : 'danger') }}">
-                    {{ (venda.pago ? 'pago' : 'pendente') }}
-                </ion-badge>
-            </ion-item>
+            <app-venda-item *ngFor="let venda of vendas" [venda]="venda"></app-venda-item>
         </ng-container>
         <ng-template #semVendas>
             <ion-item lines="none">Sem vendas no momento.</ion-item>

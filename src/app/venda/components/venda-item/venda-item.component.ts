@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Venda } from '../../models/venda.model';
 
 @Component({
   selector: 'app-venda-item',
   templateUrl: './venda-item.component.html',
   styleUrls: ['./venda-item.component.scss'],
 })
-export class VendaItemComponent implements OnInit {
+export class VendaItemComponent {
 
-  constructor() { }
-
-  ngOnInit() {}
+  @Input() venda: Venda;
+  @Output() update = new EventEmitter<Venda>();
 
 }
