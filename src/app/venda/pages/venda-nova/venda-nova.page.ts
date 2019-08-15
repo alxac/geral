@@ -4,6 +4,7 @@ import { VendaService } from '../../services/venda.service';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { take } from '../../../../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-venda-nova',
@@ -31,6 +32,23 @@ export class VendaNovaPage implements OnInit {
 
   init(): void {
     const vendaId = this.route.snapshot.paramMap.get('id');
+    if ( !vendaId ) {
+      this.pageTitle = "Nova venda";
+      return;      
+    }
+    this.vendaId = vendaId;
+    this.pageTitle = "Atualizando";
+    this.vendaService.get(vendaId)
+    .pipe( take(1) )
+    .subscribe( ({ vendedor, valor, ncontrole, id, pago, pagamento, data }) => {
+      this.vendaForm.get('vendedor').setValue(vendedor);
+      this.vendaForm.get('valor').setValue(valor);
+      this.vendaForm.get('ncontrole').setValue(ncontrole);
+      this.vendaForm.get('pagamento').setValue(pagamento);
+      this.vendaForm.get('data').setValue(data);
+      this.vendaForm.get('pago').setValue(pago);
+      // this.vendaForm.get('id').setValue(id);
+    });
   }
 
   private createForm(): void {
@@ -39,7 +57,7 @@ export class VendaNovaPage implements OnInit {
       pagamento: [''],
       valor: [''],
       data: [''],
-      pago: ['false'],
+      pago: [''],
       ncontrole: ['']
     });
   }
@@ -64,6 +82,7 @@ export class VendaNovaPage implements OnInit {
     } finally {
       loading.dismiss();
     }
+
   }
 
 }

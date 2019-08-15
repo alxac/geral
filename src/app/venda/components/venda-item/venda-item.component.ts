@@ -10,5 +10,6 @@ export class VendaItemComponent {
 
   @Input() venda: Venda;
   @Output() update = new EventEmitter<Venda>();
+  @Output() delete = new EventEmitter<Venda>();
 
 }

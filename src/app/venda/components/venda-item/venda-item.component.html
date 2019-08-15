@@ -1,4 +1,6 @@
-<ion-item>
+<ion-item-sliding #slid>
+
+<ion-item (click)="update.emit(venda)">
     <ion-chip>
         <ion-avatar>
             <img src="../../../../assets/avatar.png">
@@ -20,3 +22,16 @@
         {{ (venda.pago ? 'pago' : 'pendente') }}
     </ion-badge>
 </ion-item>
+
+<ion-item-options side="start">
+    <ion-item-option color="danger" (click)="delete.emit(venda); slid.close()">
+        <ion-icon slot="end" name="trash"></ion-icon>
+    </ion-item-option>
+</ion-item-options>
+<ion-item-options>
+    <ion-item-option color="primary" (click)="update.emit(venda); slid.close()">
+        <ion-icon slot="end" name="create"></ion-icon>
+    </ion-item-option>
+</ion-item-options>
+
+</ion-item-sliding>

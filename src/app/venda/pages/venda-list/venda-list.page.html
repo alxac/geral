@@ -16,7 +16,7 @@
 
     <ion-list *ngIf="(vendas$ | async) as vendas">
         <ng-container *ngIf="vendas.length > 0; else semVendas">
-            <app-venda-item *ngFor="let venda of vendas" [venda]="venda"></app-venda-item>
+            <app-venda-item *ngFor="let venda of vendas" [venda]="venda" (delete)="onDelete($event)" (update)="onUpdate($event)"></app-venda-item>
         </ng-container>
         <ng-template #semVendas>
             <ion-item lines="none">Sem vendas no momento.</ion-item>
