@@ -1,6 +1,6 @@
 export interface Venda {
     id: string;         // md-information-circle
-    date: string;       // md-grid ou md-stopwatch
+    data: string;       // md-grid ou md-stopwatch
     vendedor: string;   // md-contacts
     valor: string;      // md-trending-up
     pagamento: string;  // md-cash
