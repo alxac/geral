@@ -39,14 +39,14 @@
                 color="danger"
                 *ngIf="name.dirty && name.hasError('required')"
               >
-                Required
+                Obrigatório
               </ion-note>
               <ion-note
                 slot="end"
                 color="danger"
                 *ngIf="name.dirty && name.hasError('minlength')"
               >
-                Min 3 characters
+                Mínimo 3 caracter
               </ion-note>
             </ion-item>
           </ng-container>
@@ -69,14 +69,14 @@
               color="danger"
               *ngIf="email.dirty && email.hasError('required')"
             >
-              Required
+              Obrigatório
             </ion-note>
             <ion-note
               slot="end"
               color="danger"
               *ngIf="email.dirty && email.hasError('email')"
             >
-              Invalid email
+              Email inválido
             </ion-note>
           </ion-item>
 
@@ -88,7 +88,7 @@
             ></ion-icon>
             <ion-input
               type="password"
-              placeholder="Password"
+              placeholder="Senha"
               formControlName="password"
             ></ion-input>
             <ion-note
@@ -96,14 +96,14 @@
               color="danger"
               *ngIf="password.dirty && password.hasError('required')"
             >
-              Required
+              Obrigatório
             </ion-note>
             <ion-note
               slot="end"
               color="danger"
               *ngIf="password.dirty && password.hasError('minlength')"
             >
-              Min 6 characters
+              Mínimo 6 caracteres
             </ion-note>
           </ion-item>
 
@@ -131,7 +131,7 @@
             name="logo-facebook"
             slot="start"
           ></ion-icon>
-          Login with Facebook
+          Login com Facebook
         </ion-button>
 
       </ion-col>

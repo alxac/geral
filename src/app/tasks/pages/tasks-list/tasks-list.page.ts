@@ -33,14 +33,14 @@ export class TasksListPage implements OnInit {
 
   async onDelete(task: Task): Promise<void> {
     await this.overlayService.alert({
-      message: `Do you really want to delete the task "${task.title}"?`,
+      message: `Apagar esta tarefa - "${task.title}"?`,
       buttons: [
         {
           text: 'Yes',
           handler: async () => {
             await this.tasksService.delete(task);
             await this.overlayService.toast({
-              message: `Task "${task.title}" deleted!`
+              message: `Tarefa "${task.title}" deletada!`
             });
           }
         },
@@ -53,7 +53,7 @@ export class TasksListPage implements OnInit {
     const taskToUpdate = { ...task, done: !task.done };
     await this.tasksService.update(taskToUpdate);
     await this.overlayService.toast({
-      message: `Task "${task.title}" ${taskToUpdate.done ? 'completed' : 'updated'}!`
+      message: `Tarefa "${task.title}" ${taskToUpdate.done ? 'completa' : 'atualizada'}!`
     });
   }
 }

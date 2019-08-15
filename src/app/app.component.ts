@@ -25,8 +25,8 @@ export class AppComponent {
 
   initializeApp() {
     this.pages = [
-      { url: '/tasks', direction: 'back', icon: 'md-albums', text: 'Tasks' },
-      { url: '/tasks/create', direction: 'forward', icon: 'md-add-circle', text: 'New Task' },
+      { url: '/tasks', direction: 'back', icon: 'md-albums', text: 'Tarefas' },
+      { url: '/tasks/create', direction: 'forward', icon: 'md-add-circle', text: 'Nova tarefa' },
       { url: '/venda', direction: 'back', icon: 'md-cart', text: 'Vendas' },
       { url: '/venda/create', direction: 'forward', icon: 'md-add-circle', text: 'Nova venda' },
     ];

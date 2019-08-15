@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
   configs = {
     isSignIn: true,
     action: 'Login',
-    actionChange: 'Create account'
+    actionChange: 'Nova conta'
   };
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
@@ -56,8 +56,8 @@ export class LoginPage implements OnInit {
   changeAuthAction(): void {
     this.configs.isSignIn = !this.configs.isSignIn;
     const { isSignIn } = this.configs;
-    this.configs.action = isSignIn ? 'Login' : 'Sign Up';
-    this.configs.actionChange = isSignIn ? 'Create account' : 'Already have an account';
+    this.configs.action = isSignIn ? 'Login' : 'Cadastrar';
+    this.configs.actionChange = isSignIn ? 'Nova conta' : 'Já tenho uma conta';
     !isSignIn
       ? this.authForm.addControl('name', this.nameControl)
       : this.authForm.removeControl('name');
@@ -73,7 +73,7 @@ export class LoginPage implements OnInit {
       });
       this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/tasks');
     } catch (e) {
-      console.log('Auth error: ', e);
+      console.log('erro: ', e);
       await this.overlayService.toast({
         message: e.message
       });

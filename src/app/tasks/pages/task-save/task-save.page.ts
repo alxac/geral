@@ -33,11 +33,11 @@ export class TaskSavePage implements OnInit {
   init(): void {
     const taskId = this.route.snapshot.paramMap.get('id');
     if (!taskId) {
-      this.pageTitle = 'Create Task';
+      this.pageTitle = 'Nova tarefa';
       return;
     }
     this.taskId = taskId;
-    this.pageTitle = 'Edit Task';
+    this.pageTitle = 'Atualizar tarefa';
     this.tasksService
       .get(taskId)
       .pipe(take(1))
@@ -56,7 +56,7 @@ export class TaskSavePage implements OnInit {
 
   async onSubmit(): Promise<void> {
     const loading = await this.overlayService.loading({
-      message: 'Saving...'
+      message: 'Salvando...'
     });
     try {
       const task = !this.taskId
@@ -67,7 +67,7 @@ export class TaskSavePage implements OnInit {
           });
       this.navCtrl.navigateBack('/tasks');
     } catch (error) {
-      console.log('Error saving Task: ', error);
+      console.log('Erro ao salvar tarefa: ', error);
       await this.overlayService.toast({
         message: error.message
       });
