@@ -1,0 +1,6 @@
+echo "# aula_ionic" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/alxac/aula_ionic.git
+git push -u origin master
