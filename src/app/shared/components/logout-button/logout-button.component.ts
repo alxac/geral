@@ -32,17 +32,17 @@ export class LogoutButtonComponent implements OnInit {
 
   async logout(): Promise<void> {
     await this.overlayService.alert({
-      message: 'Do you really want to quit?',
+      message: 'Sair do sistema?',
       buttons: [
         {
-          text: 'Yes',
+          text: 'Sim',
           handler: async () => {
             await this.authService.logout();
             await this.menuCtrl.enable(false, this.menu);
             this.navCtrl.navigateRoot('/login');
           }
         },
-        'No'
+        'Não'
       ]
     });
   }
